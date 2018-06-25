@@ -20,10 +20,15 @@
 		<property name="suffix" value=".jsp"/>
 	</bean>				
 
+<!-- newArticleController라는 이름으로 bean객체를 생성한다. -->
 	<bean id="newArticleController" class="controller.NewArticleController"
 		p:articleService-ref="articleService"/>
 	
+<!-- articleService라는 이름으로 bean객체를 생성한다. -->	
 	<bean id="articleService" class="service.ArticleService"/>
+
+	<bean id="orderController" class="controller.OrderController"/>
+
 
 </beans>
 	

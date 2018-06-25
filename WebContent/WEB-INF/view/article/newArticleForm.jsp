@@ -11,9 +11,13 @@
 	<input type="hidden" name="parentId" value="0"/>
 	제목 : <input type="text" name="title"/><br/>
 	내용 : <textarea name="content"></textarea><br/>
-	<input type="submit"/>
+	<input type="submit" value="글쓰기"/>
 
 
 </form>
 </body>
 </html>
+
+
+
+<!-- http://localhost:8080/SpringHello/article/newArticle.do -->

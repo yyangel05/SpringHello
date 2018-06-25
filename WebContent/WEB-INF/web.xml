@@ -24,6 +24,8 @@
   </servlet-mapping>
   
 
+
+<!-- jsp에서 전송된 데이터의 한글출력이 되도록 인코딩을 담당하는 역할. -->
   	<filter>
   		<filter-name>encodingFilter</filter-name>
   		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
