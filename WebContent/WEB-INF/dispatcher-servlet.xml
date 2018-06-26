@@ -45,8 +45,19 @@
 	<!-- p는 property, searchservice는 setSearchService메서드. -->	
 	<!-- p:searchService는 setSearchService를 가리키고, 그 셋메서드에 넣는 객체는 service.SearchService 의 searchService이다.  -->
 
-<!--  -->
+<!-- searchService라는 이름을 갖는  bean객체를 생성한다 -->
 	<bean id="searchService" class="service.SearchService"/>
+
+
+	<bean class="controller.CreateAccountController"/>
+	
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>messages.validation</value>
+			</list>
+		</property>
+	</bean>
 
 
 </beans>
