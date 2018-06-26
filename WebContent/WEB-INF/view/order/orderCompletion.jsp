@@ -13,7 +13,7 @@
 주문 아이템 
 <br/>
 <ul>
-	<c:forEach var="item" items="${orderCommand.orderItems}">
+	<c:forEach var="item" items="${orderCommand.orderItems}"> <!--orderCommand.orderItems 리스트객체에 저장된 것을 하나씩 뽑아서 item에 저장한다 -->
 		<li>${item.itemId} / ${item.number} / ${item.remark }</li>
 	</c:forEach>
 </ul>

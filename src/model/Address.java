@@ -1,5 +1,6 @@
 package model;
 
+//Address이름을 가진 자바빈
 public class Address {
 	private String zipcode;
 	private String address1;

@@ -1,5 +1,6 @@
 package model;
 
+//OrderItem이름을 가진 자바빈
 public class OrderItem {
 	
 	private Integer itemId; //상품.. 숫자만 넣을 수 있음

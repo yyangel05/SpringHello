@@ -29,6 +29,25 @@
 
 	<bean id="orderController" class="controller.OrderController"/>
 
+<!-- searchController라는 이름으로 bean객체를 생성한다 -->
+	<bean id="searchController" class="controller.SearchController"/>
+	
+	
+<!-- cookieController 라는 이름으로 bean객체를 생성한다-->
+	<bean id="cookieController" class="controller.CookieController"/>
+
+<!-- HeaderController bean객체를 생성한다-->
+	<bean class="controller.HeaderController"/>
+
+<!-- SearchController라는 bean객체를 생성한다. -->
+	<bean class="controller.GameSearchController"
+	 p:searchService-ref="searchService"/>
+	<!-- p는 property, searchservice는 setSearchService메서드. -->	
+	<!-- p:searchService는 setSearchService를 가리키고, 그 셋메서드에 넣는 객체는 service.SearchService 의 searchService이다.  -->
+
+<!--  -->
+	<bean id="searchService" class="service.SearchService"/>
+
 
 </beans>
 	

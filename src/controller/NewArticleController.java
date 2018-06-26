@@ -24,7 +24,7 @@ public class NewArticleController {
 	
 	//post방식일때는 submit()이 수행된다. 
 	@RequestMapping(method= RequestMethod.POST)
-	public String submit(@ModelAttribute("command") NewArticleCommand command) {  //submit(~~)가 전송된 데이터를 자바빈에 설정한다. 
+	public String submit(@ModelAttribute("command") NewArticleCommand command) {  //submit(~~)가 전송된 데이터를 자바빈에 설정한다. //커맨드객체를 초기화하는작업
 		// @ModelAttribute("command") 의 ModelAttribute로 커맨드객체의 모델이름을 지정할 수 있다. 안써도 되긴 하지만 이렇게 지정해서 사용할 수 있음.
 		articleService.writeArticle(command); //articleService의 writeArticle함수가 실행된다. 
 		return "article/newArticleSubmitted"; //글쓰기 처리 후 흘러가는 jsp가 실행된다. 

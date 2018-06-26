@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<form method="post">
+<form method="post"> <!-- 액션이 없으면 브라우저 url경로에 전송한다. -->
 	상품1 : ID - <input type="text" name="orderItems[0].itemId"/>
 	개수 - <input type="text" name="orderItems[0].number"/>
 	주의 - <input type="text" name="orderItems[0].remark"/>
