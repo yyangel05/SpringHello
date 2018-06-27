@@ -1,10 +1,12 @@
 package model;
 
+//자바빈
+
 public class MemberInfo {
 	
-	private String id;
-	private String name;
-	private Address address;
+	private String id; //아이디
+	private String name; //회원이름
+	private Address address; //주소. 타입은 주소빈타입(?).
 	
 	
 	public String getId() {
