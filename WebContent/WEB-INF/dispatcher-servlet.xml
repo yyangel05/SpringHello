@@ -78,5 +78,13 @@
 <!-- 예제009 자바빈 객체 생성코드. REST방식의 url매칭? -->	
 	<bean class="controller.CharacterInfoController"/>
 	
+<!-- 예제010 자바빈 객체 생성코드. 로그인관련 유효성검증 예제같음. -->	
+	<bean id="authenticator" class="service.MockAuthenticator"
+		p:commonLogger-ref="commonLogger"/> <!-- setCommonLogger()에 넣는 객체는 common.CommonLoggerImpl이다. -->
+		
+	<bean class="controller.LoginController">
+		<property name="authenticator" ref="authenticator"/>
+	</bean>	
+	
 </beans>
 	
