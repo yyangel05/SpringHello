@@ -108,13 +108,34 @@
 	<bean id="eventExpirationCheckInterceptor" class="interceptor.EventExpirationCheckInterceptor"/>
 
 		
-<!-- 예제-->			
-<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
-	<property name="alwaysUseFullPath" value="true"/>
-	<property name="webBindingInitializer" >
-	<bean class="binder.CustomWebBindingInitializer"/>
-	</property>
-</bean>     		
+<!-- 예제012와 013의 사이에 있는 코드-->			
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="alwaysUseFullPath" value="true"/>
+		<property name="webBindingInitializer" >
+		<bean class="binder.CustomWebBindingInitializer"/>
+		</property>
+	</bean>     
+
+<!-- 예제014 자바빈 객체 생성코드. 사칙연산 예외처리 -->		
+	<bean class="controller.ArithmeticOperatorController"/>
+	
+	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+			<!-- ArithmeticException예외일 경우에는 error/mathException여기서 처리하도록 한다.  -->
+				<prop key="java.lang.ArithmeticException"> 
+					error/mathException
+				</prop>
+			<!-- Exception예외일 경우에는 error/exception여기서 처리하도록 한다.  -->	
+				<prop key="java.lang.Exception">
+					error/exception
+				</prop>
+			</props>
+		</property>
+	</bean>
+
+<!-- 예제015 자바빈 객체 생성코드. 웹표준 코딩??xml과 json어쩌구 코드 -->	
+	<bean class="controller.SimpleConverterController"/>
 										
 </beans>
 	

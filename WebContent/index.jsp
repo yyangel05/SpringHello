@@ -39,7 +39,7 @@
 			 (EventController, HandlerInterceptor 抗力)</li>
 	<li><a href="<c:url value='/search/game.do' />">/search/game.do</a>
 			 (GameSearchController, @ExceptionHandler 抗力)</li>
-	<li><a href="<c:url value='/math/divide.do' />?op1=1&op2=0">/math/divide.do?op1=1&amp;op2=0</a>
+	<li><a href="<c:url value='/math/div.do' />?op1=1&op2=0">/math/div.do?op1=1&amp;op2=0</a>
 			 (ArithmeticOperatorController, SimpleMappingExceptionResolver 抗力)</li>
 	<li><a href="<c:url value='/guestmessage/xml.do' />">/guestmessage/xml.do</a>
 			 (GuestMessageController, @ResponseBody 抗力)</li>
