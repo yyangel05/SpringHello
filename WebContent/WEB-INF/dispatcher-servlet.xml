@@ -70,6 +70,12 @@
 	<!-- 이 코드가 있어야 /game/@!#! 의 경로도 찾는다. -->
 	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
 		<property name="alwaysUseFullPath" value="true"/>
+		<!-- 예제013 이벤트 날짜 인터셉터 예제 -->
+		<property name="interceptors">
+			<list>
+				<ref bean="eventExpirationCheckInterceptor"/>
+			</list>
+		</property>
 	</bean>
 	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 		<property name="alwaysUseFullPath" value="true"/>
@@ -86,5 +92,29 @@
 		<property name="authenticator" ref="authenticator"/>
 	</bean>	
 	
+<!-- 예제011 자바빈 객체 생성코드. 파일관련 예제. -->		
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="EUC-KR"/>
+	</bean>
+	<bean class="controller.ReportSubmissionController"/>
+	
+	
+	
+<!-- 예제012 자바빈 객체 생성코드. 전송된 날짜 스트링을 Date객체로 변환하기 -->	
+	<bean class="controller.QueryLogController"/>
+	
+<!-- 예제013 자바빈 객체 생성코드. 인터셉터 예제. 이벤트 날짜를 체크하여 기간중이면 이벤트리스트화면, 만료면 만료화면-->	
+	<bean class="controller.EventController"/>
+	<bean id="eventExpirationCheckInterceptor" class="interceptor.EventExpirationCheckInterceptor"/>
+
+		
+<!-- 예제-->			
+<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+	<property name="alwaysUseFullPath" value="true"/>
+	<property name="webBindingInitializer" >
+	<bean class="binder.CustomWebBindingInitializer"/>
+	</property>
+</bean>     		
+										
 </beans>
 	

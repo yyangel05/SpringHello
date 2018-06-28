@@ -1,0 +1,142 @@
+ 011
+ 
+ 
+ 업로드 한 파일을 구하려면 전송 데이터를 알맞게 처리해 주어야 한다
+ -> 10.1 MultipartResolver 설정
+ 
+ 
+ 10.2 @RequestParam Annotation
+ 일반폼데이터와 파일객체를 따로받음
+ 
+ 10.3 MultipartHttpServletRequest
+ 일반폼데이터와 파일객체를 같이받음
+ 리퀘스트객체에 한번에 넣어놓고ㅡ 꺼내쓸때만 다른 메서드를 이용한다.
+ 
+ 	@RequestMapping(value = "/report/submitReport2.do", method = RequestMethod.POST)
+			public String submitReport2(MultipartHttpServletRequest request) {
+->이런식으로			String studentNumber = request.getParameter("studentNumber");
+->이런식으로			MultipartFile report = request.getFile("report");
+
+
+
+멀티파트 파일 -리퀘스트파람
+멀티파르 http
+자바빈
+
+
+
+
+
+@Controller
+	public class ReportSubmissionController {
+
+		private String uploadPath= "webcontent\\file";
+	
+	
+	
+		@RequestMapping(value = "/report/submission.do", method = RequestMethod.GET)
+		public String form() {
+			return "report/submissionForm";
+		}
+
+		//@RequestParam Annotation
+		@RequestMapping(value = "/report/submitReport1.do", method = RequestMethod.POST)
+		public String submitReport1(
+				@RequestParam("studentNumber") String studentNumber,
+				@RequestParam("report") MultipartFile report) {
+			printInfo(studentNumber, report);
+			return "report/submissionComplete";
+		}
+
+		private void printInfo(String studentNumber, MultipartFile report) {
+			System.out.println(studentNumber + "가 업로드 한 파일: "
+					+ report.getOriginalFilename());
+		}
+
+		//MultipartHttpServletRequest
+		@RequestMapping(value = "/report/submitReport2.do", method = RequestMethod.POST)
+		public String submitReport2(MultipartHttpServletRequest request) {
+			String studentNumber = request.getParameter("studentNumber");
+			MultipartFile report = request.getFile("report");
+			printInfo(studentNumber, report);
+			return "report/submissionComplete";
+		}
+
+		//자바빈
+		@RequestMapping(value = "/report/submitReport3.do", method = RequestMethod.POST)
+		public String submitReport3(ReportCommand reportCommand) {
+			printInfo(reportCommand.getStudentNumber(), reportCommand.getReport());
+			return "report/submissionComplete";
+		}
+		
+	}
+
+	
+11. 커스텀데이터 타입 변환(전송된 날짜를(String) 받으면 날짜타입으로 넣고싶을때)
+
+	string을 date객체로 변환하는 코드(?)
+	DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
+	
+11.2 컨트롤러 클래스마다 initBinder을 다 적용ㅎ야돼????  ->no no!
+	
+	
+12. 인터셉터
+
+-면접 : 인터페이스/추상클래스/다형성 (??)
+
+인터페이스 - ??adapter(인터페이스를 구현한 클래스. 메서드들은 대부분 추상클래스.) - 일반클래스(필요한것만 오버라이드해서 쓰면된다)	
+12.3
+요청은 순서대로 들어가고, 컨트롤러에서 처리가 끝나면 역순으로 보여준다?
+	
+캘린더객체의 MM은 0~11을 넣어줘야 한다.	
+	
+인터셉터를 할까말까? ->로그인했는데도 로그인창과 회원가입창으로 가려고 할 때에 제한을 걸어놓으면 좋음(?)	
+	
+	
+13. 예외처리
+-트라이캐치로 예외처리
+-익셉션핸들러로 예외처리
+-xml설정으로 예외처리
+
+
+14.
+get방식은 캐싱이 되기에 버리지 않는이유
+post는 캐싱이 되지않음
+15.
+스프링은 미리 객체를 만들어놓고 가져다씀.
+java는 new로 객체를 만들어쓴다
+
+getBean()으로 필요할때만 가져다쓴다??
+
+
+16.
+요청할때 web.xml에서 필터를 먼저 거치는데,,,,
+필터를 통과하려고 스프링에서 객체를 갖다쓴다?
+	
+	
+17. ★★★
+
+C---(요청)-->S 
+ <---------html(서버의 처리결과)
+ 
+ <---------xml, json
+ 
+데이터를 xml로 보내주는 뭐시기가 있다면??xml이나 json데이터를 보내주는?? 
+ @RequestBody
+ @ResponseBody
+ 음 설명을 하나도 못들었다
+ 
+ 
+ @XmlRootElement(name="message-list") (시작과 끝)
+ @XmlElement(name="message") 자바빈에 있는것들이 message태그에 들어간다
+ @XmlType(name="", propOrder={"id","message","creationTime"}) 이것들이 들어가면서 xml이 생성된다.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+	
+	

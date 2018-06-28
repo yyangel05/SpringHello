@@ -18,7 +18,8 @@
 		<a href="<c:url value='/search/external.do' />?query=p&">/search/external.do</a>
 		(SearchController, @RequestParam 예제)</li>
 	<li><a href="<c:url value='/cookie/make.do' />">/cookie/make.do</a>
-				<a href="<c:url value='/cookie/view.do' />">/cookie/view.do</a>
+	
+			<a href="<c:url value='/cookie/view.do' />">/cookie/view.do</a>
 			 (CookieController, @CookieValue 예제)</li>
 	<li><a href="<c:url value='/header/check.do' />">/header/check.do</a>
 			 (HeaderController, @RequestHeader 예제)</li>
